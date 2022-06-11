@@ -25,6 +25,19 @@ class _TabBarScreenState extends State<TabBarScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Tab Bar Screen"),
+          actions: [
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/api_list_screen");
+                },
+                child: Text(
+                  "Next",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              ),
+            )
+          ],
           // bottom: TabBar(
           //     tabs: [Icon(Icons.home), Icon(Icons.add), Icon(Icons.phone)]),
         ),
@@ -142,25 +155,34 @@ class _TabBarScreenState extends State<TabBarScreen> {
                           });
                     },
                     child: Text("Show Dialog")),
-                ElevatedButton(
-                    onPressed: () {
-                      // Navigator.pushAndRemoveUntil(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => LoginScreen(),
-                      //     ),
-                      //     (route) => false);
+                if (isCheckBoxChecked)
+                  ElevatedButton(
+                      onPressed: () {
+                        if (isCheckBoxChecked) {
+                          // yesy function
+                        } else {
+                          //no function
+                        }
 
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, "/login", (Route<dynamic> route) => false);
+                        // Navigator.pushAndRemoveUntil(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => LoginScreen(),
+                        //     ),
+                        //     (route) => false);
 
-                      // Navigator.popUntil(
-                      //     context, ModalRoute.withName('/login'));
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, "/login", (Route<dynamic> route) => false);
 
-                      // Navigator.pushReplacementNamed(context, "/login");
-                      // Navigator.pop(context);
-                    },
-                    child: Text("Logout"))
+                        // Navigator.popUntil(
+                        //     context, ModalRoute.withName('/login'));
+
+                        // Navigator.pushReplacementNamed(context, "/login");
+                        // Navigator.pop(context);
+                      },
+                      child: Text("Logout"))
+                else
+                  Container()
               ],
             ),
           )

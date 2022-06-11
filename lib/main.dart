@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/api_list/api_list_screen.dart';
 import 'package:myapp/login_screen.dart';
 
 import 'list_view_screen.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginScreen(),
 
-        '/list_view_screen': (context) => ListviewScreen()
+        '/list_view_screen': (context) => ListviewScreen(),
+        '/api_list_screen':(context) => ApiListScreen()
       },
     );
   }
