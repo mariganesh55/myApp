@@ -182,7 +182,12 @@ class _TabBarScreenState extends State<TabBarScreen> {
                       },
                       child: Text("Logout"))
                 else
-                  Container()
+                  Container(),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/fire_base_screen');
+                    },
+                    child: Text("Go To Firebase Screen"))
               ],
             ),
           )

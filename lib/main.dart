@@ -1,11 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/api_list/api_list_screen.dart';
+import 'package:myapp/fire_base_screen.dart';
 import 'package:myapp/login_screen.dart';
 
 import 'list_view_screen.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
   runApp(const MyApp());
+  
+
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +36,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
 
         '/list_view_screen': (context) => ListviewScreen(),
-        '/api_list_screen':(context) => ApiListScreen()
+        '/api_list_screen':(context) => ApiListScreen(),
+        '/fire_base_screen':(context) => FirebaseDemoScreen()
       },
     );
   }
