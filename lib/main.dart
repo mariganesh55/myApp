@@ -1,19 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/api_list/api_list_screen.dart';
+import 'package:myapp/cart_home_screen.dart';
 import 'package:myapp/fire_base_screen.dart';
 import 'package:myapp/login_screen.dart';
+import 'package:myapp/sign_in_page.dart';
 
 import 'list_view_screen.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
   runApp(const MyApp());
-  
-
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -36,8 +36,10 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
 
         '/list_view_screen': (context) => ListviewScreen(),
-        '/api_list_screen':(context) => ApiListScreen(),
-        '/fire_base_screen':(context) => FirebaseDemoScreen()
+        '/api_list_screen': (context) => ApiListScreen(),
+        '/fire_base_screen': (context) => FirebaseDemoScreen(),
+        '/sign_in_screen': (context) => SignInPage(),
+        '/cart_home_screen': (context) => CartHomeScreen(),
       },
     );
   }
@@ -112,28 +114,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     TextButton(
                         onPressed: () {
-                          // on press action code
-
-                          // navigation code
-
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => LoginScreen(),
-                          //     ));
-
-                          // Named route
-
-                          // Navigator.pushReplacement(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => ListviewScreen(),
-                          //     ));
-
-                          // Navigator.pushNamed(context, "/login");
+                          Navigator.pushNamed(context, "/sign_in_screen");
                         },
                         child: const Text(
-                          "Go to login screen",
+                          "Go to Signin screen",
                           style: TextStyle(fontSize: 25),
                         )),
                     ElevatedButton(
