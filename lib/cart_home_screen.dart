@@ -12,6 +12,8 @@ class CartHomeScreen extends StatefulWidget {
 }
 
 class _CartHomeScreenState extends State<CartHomeScreen> {
+
+  
   final databaseReference = FirebaseDatabase.instance.ref().child("products");
   List<Product> products = List.generate(
       10,
@@ -137,8 +139,10 @@ class _CartHomeScreenState extends State<CartHomeScreen> {
 
   void addProduct(Product product) {
     if (!selectedProducts.contains(product)) {
+      // upload object to firebase console
       databaseReference.push().set(product.toJson());
 
+      // get object list from firebase console
       databaseReference.once().then((var event) {
         Map response = event.snapshot.value as Map;
 

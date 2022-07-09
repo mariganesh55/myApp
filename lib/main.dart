@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/animations/animation_screen.dart';
 import 'package:myapp/api_list/api_list_screen.dart';
 import 'package:myapp/cart_home_screen.dart';
 import 'package:myapp/fire_base_screen.dart';
@@ -34,12 +35,12 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginScreen(),
-
         '/list_view_screen': (context) => ListviewScreen(),
         '/api_list_screen': (context) => ApiListScreen(),
         '/fire_base_screen': (context) => FirebaseDemoScreen(),
         '/sign_in_screen': (context) => SignInPage(),
         '/cart_home_screen': (context) => CartHomeScreen(),
+        '/animations_screen': (context) => AnimationScreen(),
       },
     );
   }
@@ -134,6 +135,17 @@ class _MyHomePageState extends State<MyHomePage> {
                           //     ));
                         },
                         child: const Text("Go to login"),
+                        style:
+                            ElevatedButton.styleFrom(primary: Colors.orange)),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AnimationScreen(),
+                              ));
+                        },
+                        child: const Text("Go to Animations"),
                         style: ElevatedButton.styleFrom(primary: Colors.orange))
                   ],
                 ),

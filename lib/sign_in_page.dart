@@ -61,6 +61,12 @@ class SignInPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
+                      // AuthenticationService(FirebaseAuth.instance)
+                      //     .verifyPhoneNumber()
+                      //     .then((value) {
+                      //   print(value);
+                      // });
+
                       AuthenticationService(FirebaseAuth.instance)
                           .signIn(
                               email: emailController.text.trim(),

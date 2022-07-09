@@ -46,4 +46,26 @@ class AuthenticationService {
       return e.message;
     }
   }
+
+  Future<String?> verifyPhoneNumber() async {
+    try {
+      await _firebaseAuth.verifyPhoneNumber(
+        phoneNumber: '+91 9597304478',
+        verificationCompleted: (PhoneAuthCredential credential) {
+          print(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          print(e);
+        },
+        codeSent: (String verificationId, int? resendToken) {
+          print(verificationId);
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {
+          print(verificationId);
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      return e.message;
+    }
+  }
 }

@@ -50,13 +50,9 @@ class _FirebaseDemoScreenState extends State<FirebaseDemoScreen> {
   }
 
   void createRecord() {
-    databaseReference.child("1").set({
-      'title': 'Mastering EJB',
-      'description': 'Programming Guide for J2EE',
-      // 'name':'Ganesh',
-      // 'age':26,
-      // 'country':"india"
-    });
+    databaseReference
+        .child("1")
+        .set({'name': 'Ganesh', 'age': 26, 'country': "india"});
     databaseReference.child("2").set({
       'title': 'Flutter in Action',
       'description': 'Complete Programming Guide to learn Flutter'
@@ -70,7 +66,7 @@ class _FirebaseDemoScreenState extends State<FirebaseDemoScreen> {
   }
 
   void updateData() {
-    databaseReference.child('1').update({'description': 'Ganesh'});
+    databaseReference.child('1').update({'name': 'Mariganesh'});
   }
 
   void deleteData() {
